@@ -91,22 +91,15 @@ refs() {
     sudo apt-get upgrade -y
     sudo apt autoremove -y
     banner
-    echo -e "${R} [${W}-${R}]${C} Installing Visual Studio..."${W}
+    
 
-    wget -qO- https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor > packages.microsoft.gpg
-    sudo install -o root -g root -m 644 packages.microsoft.gpg /etc/apt/trusted.gpg.d/
-    sudo sh -c 'echo "deb [arch=amd64,arm64,armhf signed-by=/etc/apt/trusted.gpg.d/packages.microsoft.gpg] https://packages.microsoft.com/repos/code stable main" > /etc/apt/sources.list.d/vscode.list'
-    sudo apt install apt-transport-https -y
-    sudo apt update -y
-    sudo apt install code -y
+    git clone --depth=1 https://github.com/yeyushengfan258/Win11OS-kde.git $HOME/Win11OS-kde
+    sudo chmod +x $HOME/Win11OS-kde/install.sh
+    sudo bash $HOME/Win11OS-kde/install.sh
 
-    git clone --depth=1 https://github.com/vinceliuice/Layan-gtk-theme.git $HOME/Layan-gtk-theme
-    sudo chmod +x $HOME/Layan-gtk-theme/install.sh
-    sudo bash $HOME/Layan-gtk-theme/install.sh
-
-    git clone --depth=1 https://github.com/vinceliuice/Qogir-icon-theme.git $HOME/Qogir-icon-theme
-    sudo chmod +x $HOME/Qogir-icon-theme/install.sh
-    sudo bash $HOME/Qogir-icon-theme/install.sh
+    git clone --depth=1 https://github.com/yeyushengfan258/Win11-icon-theme.git $HOME/Win11-icon-theme
+    sudo chmod +x $HOME/Win11-icon-theme/install.sh
+    sudo bash $HOME/Win11-icon-theme/install.sh
 
     git clone --depth=1 https://github.com/s-h-3-l-l/katoolin3.git $HOME/katoolin3
     sudo chmod +x $HOME/katoolin3/install.sh
@@ -129,7 +122,7 @@ vnc() {
         rm -rf $HOME/.vnc/xstartup
     fi
 
-    wget https://raw.githubusercontent.com/modded-ubuntu/modded-ubuntu/master/distro/xstartup
+    wget https://raw.githubusercontent.com/ilyasahmadalmaki/modded-ubuntu/master/distro/xstartup
     mv -f xstartup $HOME/.vnc/xstartup
     chmod +x $HOME/.vnc/xstartup
 
@@ -137,7 +130,7 @@ vnc() {
         rm -rf /usr/local/bin/vncstart
     fi
 
-    wget https://raw.githubusercontent.com/modded-ubuntu/modded-ubuntu/master/distro/vncstart
+    wget https://raw.githubusercontent.com/ilyasahmadalmaki/modded-ubuntu/master/distro/vncstart
     mv -f vncstart /usr/local/bin/vncstart
     chmod +x /usr/local/bin/vncstart
 
@@ -145,7 +138,7 @@ vnc() {
         rm -rf /usr/local/bin/vncstop
     fi
 
-    wget https://raw.githubusercontent.com/modded-ubuntu/modded-ubuntu/master/distro/vncstop
+    wget https://raw.githubusercontent.com/ilyasahmadalmaki/modded-ubuntu/master/distro/vncstop
     mv -f vncstop /usr/local/bin/vncstop
     chmod +x /usr/local/bin/vncstop
 
